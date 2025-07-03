@@ -1,5 +1,86 @@
+// Password Protection System
+const CORRECT_PASSWORD = "iSkate13June";
+
+// Password protection functionality
+function initializePasswordProtection() {
+    const passwordScreen = document.getElementById('password-screen');
+    const mainContent = document.getElementById('main-content');
+    const passwordForm = document.getElementById('password-form');
+    const passwordInput = document.getElementById('password-input');
+    const errorMessage = document.getElementById('error-message');
+
+    // Check if user has already entered correct password (stored in sessionStorage)
+    if (sessionStorage.getItem('passwordUnlocked') === 'true') {
+        passwordScreen.style.display = 'none';
+        mainContent.classList.remove('hidden');
+        return;
+    }
+
+    // Handle password form submission
+    passwordForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const enteredPassword = passwordInput.value.trim();
+        
+        if (enteredPassword === CORRECT_PASSWORD) {
+            // Correct password - unlock the content
+            sessionStorage.setItem('passwordUnlocked', 'true');
+            
+            // Add success animation
+            passwordScreen.style.transition = 'opacity 0.5s ease';
+            passwordScreen.style.opacity = '0';
+            
+            setTimeout(() => {
+                passwordScreen.style.display = 'none';
+                mainContent.classList.remove('hidden');
+                
+                // Add entrance animation for main content
+                mainContent.style.animation = 'fadeIn 1s ease-out';
+            }, 500);
+            
+            // Clear any error message
+            errorMessage.textContent = '';
+            errorMessage.classList.remove('show');
+            
+        } else {
+            // Wrong password - show error
+            errorMessage.textContent = 'Incorrect password. Please try again.';
+            errorMessage.classList.add('show');
+            passwordInput.value = '';
+            passwordInput.focus();
+            
+            // Add shake animation to the container
+            const container = document.querySelector('.password-container');
+            container.style.animation = 'shake 0.5s ease-in-out';
+            setTimeout(() => {
+                container.style.animation = '';
+            }, 500);
+        }
+    });
+
+    // Add shake animation keyframes
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Focus on password input when page loads
+    passwordInput.focus();
+}
+
 // Harry Potter Birthday Card Interactive Script
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize password protection first
+    initializePasswordProtection();
+    
     // Get DOM elements
     const envelope = document.getElementById('envelope');
     const waxSeal = document.getElementById('wax-seal');

@@ -8,65 +8,85 @@
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Study Table Background Elements -->
-    <!-- Removed study-elements for a cleaner look -->
-    
-    <div class="container">
-        <!-- Envelope -->
-        <div class="envelope" id="envelope">
-            <div class="envelope-flap"></div>
-            <div class="envelope-content">
-                <div class="letter" id="letter">
-                    <h1 class="title">Happy Birthday!</h1>
+    <!-- Password Protection Screen -->
+    <div class="password-screen" id="password-screen">
+        <div class="password-container">
+            <div class="password-header">
+                <h1>🔐 Secret Portal</h1>
+                <p>Enter the magical password to reveal your special surprise</p>
+            </div>
+            <form class="password-form" id="password-form">
+                <div class="input-group">
+                    <input type="password" id="password-input" placeholder="Enter password..." required>
+                    <button type="submit" class="password-btn">✨ Unlock ✨</button>
                 </div>
-            </div>
-            <div class="wax-seal" id="wax-seal">
-                <div class="seal-design">HP</div>
-            </div>
+                <div class="error-message" id="error-message"></div>
+            </form>
         </div>
+    </div>
 
-        <!-- Card Content -->
-        <div class="card hidden" id="card">
-            <div class="card-header">
-                <div class="hogwarts-banner">
-                    <h1>🎂 Happy Birthday! 🎂</h1>
-                    <div class="magical-sparkles"></div>
+    <!-- Main Content (Hidden until password is correct) -->
+    <div class="main-content hidden" id="main-content">
+        <!-- Study Table Background Elements -->
+        <!-- Removed study-elements for a cleaner look -->
+        
+        <div class="container">
+            <!-- Envelope -->
+            <div class="envelope" id="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-content">
+                    <div class="letter" id="letter">
+                        <h1 class="title">Happy Birthday!</h1>
+                    </div>
+                </div>
+                <div class="wax-seal" id="wax-seal">
+                    <div class="seal-design">HP</div>
                 </div>
             </div>
-            
-            <div class="card-body">
-                <div class="message-section">
-                    <h2>Dear Shaliny,</h2>
-                    <p style="font-size: 20px; color: #3e2d14; text-align: left; margin: 0 auto; max-width: 90%;">
-                        We are pleased to inform you that today is a most magical day—your birthday!<br><br>
-                        May this year be filled with happiness brighter than a thousand Lumos charms, and may your dreams soar higher than a Firebolt on a Quidditch pitch.<br><br>
-                        Remember, the magic within you is stronger than any spell. Keep working hard, for even the smallest effort can conjure the greatest wonders.<br><br>
-                        On behalf of all at Hogwarts, and from the bottom of my heart: Happy Birthday! May your days be filled with laughter, love, and a sprinkle of mischief.<br><br>
-                        Always remember, you are loved more than all the Chocolate Frogs in Honeydukes.<br><br>
-                        With all my love and magic,<br>
-                        <span class="signature-name">Momo</span><br>
-                        <span class="signature-date">Hogwarts School of Witchcraft and Wizardry</span>
-                    </p>
-                    
-                </div>
-            </div>
-            
-            <div class="card-footer">
-                <div class="floating-elements">
-                    <div class="floating-item">⚡</div>
-                    <div class="floating-item">🌟</div>
-                    <div class="floating-item">✨</div>
-                    <div class="floating-item">💫</div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Gift Modals -->
-        <div class="modal hidden" id="gift-modal">
-            <div class="modal-content">
-                <span class="close-button" id="close-modal">&times;</span>
-                <div class="modal-body" id="modal-body">
-                    <!-- Content will be dynamically inserted -->
+            <!-- Card Content -->
+            <div class="card hidden" id="card">
+                <div class="card-header">
+                    <div class="hogwarts-banner">
+                        <h1>🎂 Happy Birthday! 🎂</h1>
+                        <div class="magical-sparkles"></div>
+                    </div>
+                </div>
+                
+                <div class="card-body">
+                    <div class="message-section">
+                        <h2>Dear Shaliny,</h2>
+                        <p style="font-size: 20px; color: #3e2d14; text-align: left; margin: 0 auto; max-width: 90%;">
+                            We are pleased to inform you that today is a most magical day—your birthday!<br><br>
+                            May this year be filled with happiness brighter than a thousand Lumos charms, and may your dreams soar higher than a Firebolt on a Quidditch pitch.<br><br>
+                            Remember, the magic within you is stronger than any spell. Keep working hard, for even the smallest effort can conjure the greatest wonders.<br><br>
+                            On behalf of all at Hogwarts, and from the bottom of my heart: Happy Birthday! May your days be filled with laughter, love, and a sprinkle of mischief.<br><br>
+                            Always remember, you are loved more than all the Chocolate Frogs in Honeydukes.<br><br>
+                            With all my love and magic,<br>
+                            <span class="signature-name">Momo</span><br>
+                            <span class="signature-date">Hogwarts School of Witchcraft and Wizardry</span>
+                        </p>
+                        
+                    </div>
+                </div>
+                
+                <div class="card-footer">
+                    <div class="floating-elements">
+                        <div class="floating-item">⚡</div>
+                        <div class="floating-item">🌟</div>
+                        <div class="floating-item">✨</div>
+                        <div class="floating-item">💫</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gift Modals -->
+            <div class="modal hidden" id="gift-modal">
+                <div class="modal-content">
+                    <span class="close-button" id="close-modal">&times;</span>
+                    <div class="modal-body" id="modal-body">
+                        <!-- Content will be dynamically inserted -->
+                    </div>
                 </div>
             </div>
         </div>

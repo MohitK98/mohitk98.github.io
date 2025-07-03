@@ -16,6 +16,142 @@
     font-style: normal;
 }
 
+/* Password Protection Styles */
+.password-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    font-family: 'Crimson Text', serif;
+}
+
+.password-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    border: 2px solid #bfa76f;
+    position: relative;
+    overflow: hidden;
+}
+
+.password-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shimmer 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.password-header h1 {
+    font-family: 'HarryP', 'Crimson Text', serif;
+    color: #3e2d14;
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 0 #e5d6b8;
+}
+
+.password-header p {
+    color: #7c6a4a;
+    font-size: 16px;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.password-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#password-input {
+    padding: 15px 20px;
+    border: 2px solid #bfa76f;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Crimson Text', serif;
+    background: #f7f1e3;
+    color: #3e2d14;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+#password-input:focus {
+    border-color: #8B4513;
+    box-shadow: 0 0 10px rgba(139, 69, 19, 0.3);
+    transform: scale(1.02);
+}
+
+.password-btn {
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #8B4513, #A0522D);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Crimson Text', serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+}
+
+.password-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+    background: linear-gradient(45deg, #A0522D, #CD853F);
+}
+
+.password-btn:active {
+    transform: translateY(0);
+}
+
+.error-message {
+    color: #DC143C;
+    font-size: 14px;
+    min-height: 20px;
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.error-message.show {
+    opacity: 1;
+}
+
+.main-content {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -66,10 +202,16 @@ body::before, body::after {
     box-shadow: 0 2px 12px rgba(80,60,20,0.07);
     padding: 28px 24px;
     max-width: 90%;
+    min-width: 320px;
+    min-height: 100vh;
     margin: 0 auto;
-    text-align: left;
+    text-align: center;
     opacity: 0;
     transition: opacity 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .letter.visible {
@@ -82,6 +224,7 @@ body::before, body::after {
     color: #3e2d14;
     margin-bottom: 12px;
     text-shadow: 1px 1px 0 #e5d6b8;
+    text-align: center;
 }
 
 .subtitle {
@@ -99,6 +242,7 @@ body::before, body::after {
     max-width: 700px;
     margin: 0 auto;
     animation: cardAppear 1s ease-out;
+    min-width: 340px;
 }
 
 .card-header {
@@ -146,6 +290,7 @@ body::before, body::after {
     cursor: pointer;
     transition: transform 0.3s ease;
     margin-top: 20px;
+    min-width: 340px;
 }
 
 .envelope:hover {
@@ -617,4 +762,6 @@ body::before, body::after {
     width: 100%;
     max-width: 800px;
     padding: 20px;
+    flex: 1 0 auto;
+    flex-shrink: 0;
 } 
