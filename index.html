@@ -1,90 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hogwarts Candle Sky</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      background: #000;
-      background-image: url('background.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    .candle {
-      position: absolute;
-      width: 12px;
-      height: 70px;
-      background: linear-gradient(to bottom, #f9f3d2, #e9dca4);
-      border-radius: 3px;
-      box-shadow:
-        0 0 10px rgba(255, 239, 184, 0.5),
-        0 0 20px rgba(255, 214, 102, 0.3);
-      animation: float 6s ease-in-out infinite;
-      z-index: 2;
-    }
-
-    .flame {
-      position: absolute;
-      top: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 12px;
-      height: 16px;
-      background: radial-gradient(ellipse at center, #ffeb3b 0%, #ff9800 60%, transparent 100%);
-      border-radius: 50% 50% 40% 40%;
-      box-shadow:
-        0 0 12px #ffcc00,
-        0 0 30px rgba(255, 200, 0, 0.8);
-      animation: flicker 1.2s infinite alternate ease-in-out;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0px); opacity: 1; }
-      50% { transform: translateY(-15px); opacity: 0.85; }
-      100% { transform: translateY(0px); opacity: 1; }
-    }
-
-    @keyframes flicker {
-      0% { transform: scale(1) translateX(-50%); opacity: 0.95; }
-      100% { transform: scale(1.1) translateX(-50%); opacity: 1; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! 🧙‍♀️✨</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Study Table Background Elements -->
+    <!-- Removed study-elements for a cleaner look -->
+    
+    <div class="container">
+        <!-- Envelope -->
+        <div class="envelope" id="envelope">
+            <div class="envelope-flap"></div>
+            <div class="envelope-content">
+                <div class="letter" id="letter">
+                    <h1 class="title">Happy Birthday!</h1>
+                </div>
+            </div>
+            <div class="wax-seal" id="wax-seal">
+                <div class="seal-design">HP</div>
+            </div>
+        </div>
 
-  <script>
-    const numCandles = 60; // More candles for dense magical atmosphere
+        <!-- Card Content -->
+        <div class="card hidden" id="card">
+            <div class="card-header">
+                <div class="hogwarts-banner">
+                    <h1>🎂 Happy Birthday! 🎂</h1>
+                    <div class="magical-sparkles"></div>
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <div class="message-section">
+                    <h2>Dear Shaliny,</h2>
+                    <p style="font-size: 20px; color: #3e2d14; text-align: left; margin: 0 auto; max-width: 90%;">
+                        We are pleased to inform you that today is a most magical day—your birthday!<br><br>
+                        May this year be filled with happiness brighter than a thousand Lumos charms, and may your dreams soar higher than a Firebolt on a Quidditch pitch.<br><br>
+                        Remember, the magic within you is stronger than any spell. Keep working hard, for even the smallest effort can conjure the greatest wonders.<br><br>
+                        On behalf of all at Hogwarts, and from the bottom of my heart: Happy Birthday! May your days be filled with laughter, love, and a sprinkle of mischief.<br><br>
+                        Always remember, you are loved more than all the Chocolate Frogs in Honeydukes.<br><br>
+                        With all my love and magic,<br>
+                        <span class="signature-name">Momo</span><br>
+                        <span class="signature-date">Hogwarts School of Witchcraft and Wizardry</span>
+                    </p>
+                    
+                </div>
+            </div>
+            
+            <div class="card-footer">
+                <div class="floating-elements">
+                    <div class="floating-item">⚡</div>
+                    <div class="floating-item">🌟</div>
+                    <div class="floating-item">✨</div>
+                    <div class="floating-item">💫</div>
+                </div>
+            </div>
+        </div>
 
-    for (let i = 0; i < numCandles; i++) {
-      const candle = document.createElement('div');
-      candle.className = 'candle';
+        <!-- Gift Modals -->
+        <div class="modal hidden" id="gift-modal">
+            <div class="modal-content">
+                <span class="close-button" id="close-modal">&times;</span>
+                <div class="modal-body" id="modal-body">
+                    <!-- Content will be dynamically inserted -->
+                </div>
+            </div>
+        </div>
+    </div>
 
-      // Position within top 50% of screen
-      candle.style.left = Math.random() * 100 + 'vw';
-      candle.style.top = Math.random() * 45 + 'vh';
-
-      // Random animation speed
-      candle.style.animationDuration = (5 + Math.random() * 3) + 's';
-
-      const flame = document.createElement('div');
-      flame.className = 'flame';
-
-      candle.appendChild(flame);
-      document.body.appendChild(candle);
-    }
-  </script>
-
+    <script src="script.js"></script>
 </body>
-</html>
+</html> 
